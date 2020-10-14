@@ -1,0 +1,17 @@
+.hand {
+  width: 72px;
+  transition: 300ms;
+}
+
+.hand--opacity {
+  opacity: 0.33;
+}
+
+.description {
+  font-size: 2rem;
+}
+
+.img-container {
+  display: flex;
+  justify-content: space-between;
+}
