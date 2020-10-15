@@ -9,6 +9,7 @@ let hisScore = document.querySelector(".computer-score");
 let equality = document.querySelector(".js-equal");
 let ourResult = document.querySelector(".js-result");
 let hisResult
+
 hisScore.textContent = 0;
 myScore.textContent = 0;
 equality.textContent = 0;
@@ -34,7 +35,6 @@ function duel(event){
     }
 
     hisChoice.textContent = "Il a choisi " + hisResult;
-    console.log(hisChoice)
 
 
     if (myTarget.getAttribute("data-form") === hisTarget.getAttribute("data-form")) {
@@ -43,22 +43,34 @@ function duel(event){
     } else if ((myTarget.getAttribute("data-form") === "scisor" && hisTarget.getAttribute("data-form") === "paper") || (myTarget.getAttribute("data-form") === "paper" && hisTarget.getAttribute("data-form") === "rock") || (myTarget.getAttribute("data-form") === "rock" && hisTarget.getAttribute("data-form") === "scisor")) {
         myScore.textContent++;
         ourResult.textContent = "Tu as gagné !";
+        if (myScore.textContent === "10") {
+            alert("Vous avez gagné !");
+            confetti.start();
+            setTimeout(function() {confetti.stop()}, 10000);
+        }
     } else {
         hisScore.textContent++;
         ourResult.textContent = "Tu as perdus.";
+        if (hisScore.textContent === "10") {
+            alert("Vous avez perdus");
+        }
     }
 
     for(let element of hand) {
         element.classList.add("hand--opacity");
+        setTimeout(function() {element.classList.remove("hand--opacity")}, 1000);
     }
     myTarget.classList.remove("hand--opacity");
 
     for(let element of hisHand) {
-        element.classList.add("hand--opacity");
+         element.classList.add("hand--opacity");
+         setTimeout(function() {element.classList.remove("hand--opacity")}, 1000);
     }
     hisTarget.classList.remove("hand--opacity");
+
     
 
+   
 }
 
 for(let element of hand) {
