@@ -8,7 +8,9 @@ let hisChoice = document.querySelector(".js-his-choice");
 let hisScore = document.querySelector(".computer-score");
 let equality = document.querySelector(".js-equal");
 let ourResult = document.querySelector(".js-result");
-let hisResult
+let finalResult = document.querySelector(".final-result");
+let allResult = document.querySelector(".result-container");
+let hisResult;
 
 hisScore.textContent = 0;
 myScore.textContent = 0;
@@ -43,16 +45,19 @@ function duel(event){
     } else if ((myTarget.getAttribute("data-form") === "scisor" && hisTarget.getAttribute("data-form") === "paper") || (myTarget.getAttribute("data-form") === "paper" && hisTarget.getAttribute("data-form") === "rock") || (myTarget.getAttribute("data-form") === "rock" && hisTarget.getAttribute("data-form") === "scisor")) {
         myScore.textContent++;
         ourResult.textContent = "Tu as gagné !";
-        if (myScore.textContent === "10") {
-            alert("Vous avez gagné !");
+        if (myScore.textContent === "1") {
             confetti.start();
             setTimeout(function() {confetti.stop()}, 10000);
+            allResult.textContent = "";
+            finalResult.textContent = "VOUS AVEZ GAGNEZ";
+
         }
     } else {
         hisScore.textContent++;
         ourResult.textContent = "Tu as perdus.";
-        if (hisScore.textContent === "10") {
-            alert("Vous avez perdus");
+        if (hisScore.textContent === "1") {
+            allResult.textContent = "";
+            finalResult.textContent = "VOUS AVEZ PERDUS";
         }
     }
 
