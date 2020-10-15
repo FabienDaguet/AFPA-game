@@ -1,17 +1,28 @@
 .hand {
   width: 72px;
   transition: 300ms;
+  margin-top: 10rem;
 }
 
 .hand--opacity {
-  opacity: 0.33;
+  opacity: 0.23;
 }
 
 .description {
-  font-size: 2rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
 }
 
 .img-container {
   display: flex;
   justify-content: space-between;
+}
+
+.choice-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.result-container {
+  text-align: center;
 }
